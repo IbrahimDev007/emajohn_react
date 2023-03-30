@@ -1,0 +1,9 @@
+.cart{
+    background-color: rgb(255, 156, 86);
+    padding: 25px;
+    position: sticky;
+    top: 0;
+}
+.cart p{
+    font-size: medium;
+}
