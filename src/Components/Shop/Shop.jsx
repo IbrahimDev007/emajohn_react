@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { addToDb, getShoppingCart } from "../../../public/utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/product";
 import './Shop.css'
-
 const Shop = () => {
     const [products,setProducts]=useState([]);
     const [cart,setCart]=useState([])
+    const handleclearCart=()=>{
+      setCart([]);
+      deleteShoppingCart()
+   }
+  
     useEffect(() => {
       fetch('products.json')
     .then(res=>res.json())
@@ -52,6 +57,7 @@ const remaining =cart.filter(pd=>pd.id!==product.id)
         setCart(newCart)
         addToDb(product.id)
      }
+     
 
 	return (
 		<div className="shop-container">
@@ -59,7 +65,9 @@ const remaining =cart.filter(pd=>pd.id!==product.id)
 				{products.map(product=><Product key={product.id} product={product} handleAddToCart={handleAddToCart}/>)}
 			</div>
 			<div className="cart-container">
-				<Cart cart={cart} />
+				<Cart cart={cart} handleclearCart={handleclearCart}>
+          <Link to='/orders'><button>Review Order</button></Link>
+        </Cart>
 			</div>
 		</div>
 	);
