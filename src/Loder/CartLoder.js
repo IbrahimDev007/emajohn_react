@@ -15,7 +15,7 @@ const cartProductsLoader = async () => {
         }
     }
     return savedCart;
-
+    
 }
 
 export default cartProductsLoader

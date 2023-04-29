@@ -2,8 +2,9 @@ import React from "react";
 import "./Cart.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrashCan } from '@fortawesome/free-solid-svg-icons'
+
 const Cart = ({ cart ,handleclearCart,children}) => {
-	console.log(cart);
+
 	let totalPrice = 0;
 	let totalShiping = 0;
 	let quantity = 0;
